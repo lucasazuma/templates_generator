@@ -1,0 +1,19 @@
+require 'rails_helper'
+
+RSpec.describe <%= class_name %>, type: :request do
+describe "GET api/abilities/:id" do
+  let(:<%= singular_table_name %>) { create(:<%=singular_table_name %>) }
+
+  it "returns http success" do
+    get "/api/<%= plural_name %>/#{<%= singular_name %>.id}"
+    expect(response).to have_http_status(:success)
+  end
+end
+
+describe "GET api/abilities" do
+  it "returns http success" do
+    get "/api/<%= plural_name %>", params: { format: :json }
+    expect(response).to have_http_status(:success)
+  end
+end
+end
