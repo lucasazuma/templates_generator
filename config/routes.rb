@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   resources :dads do
     resources :shirts
     resources :boards
+    resources :plants
+    resources :vegetables
+    resources :winds
+    resources :questions
+    resources :elastics
   end
   resources :juices
   resources :waters
