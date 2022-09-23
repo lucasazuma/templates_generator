@@ -4,7 +4,7 @@ module GeneratorHelpers
   private
 
   def model_columns_for_attributes
-    class_name.constantize.columns.reject do |column|
+    class_name.singularize.constantize.columns.reject do |column|
       column.name.to_s =~ /^(id|user_id|created_at|updated_at)$/
     end
   end

@@ -1,11 +1,11 @@
-class Api::PostController < Api::ApiController
+class PostController < ApplicationController
   def create
-    @post = Post.create
+    @post = Post.create(post_params)
     render json: @post, status: :ok
   end
 
   def update
-    @post = Post.update
+    @post = Post.update(post_params)
     render json: @post, status: :ok
   end
 
@@ -26,6 +26,6 @@ class Api::PostController < Api::ApiController
 
   private
   def post_params
-    params.require(:post).permit(:name, :year)
+    params.require(:post).permit(:title, :number)
   end
 end

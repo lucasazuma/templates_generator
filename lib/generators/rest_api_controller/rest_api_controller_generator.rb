@@ -12,12 +12,12 @@ class RestApiControllerGenerator < Rails::Generators::NamedBase
   def create_service_file
     Rails::Generators.invoke("model", [file_name, build_model_attributes])
 
-    # generator_path =  API_CONTROLLER_DIR_PATH + "/#{file_name}_controller.rb"
-    # test_path =  API_TEST_DIR_PATH + "/#{file_name}_spec.rb"
-    # template "rest_api_controller.rb.erb", generator_path
-    # template "rest_api_spec.rb.erb", test_path
-    # routes_string = "resources :#{file_name}"
-    # route routes_string
+    generator_path =  API_CONTROLLER_DIR_PATH + "/#{file_name.pluralize}_controller.rb"
+    test_path =  API_TEST_DIR_PATH + "/#{file_name}_spec.rb"
+    template "rest_api_controller.rb.erb", generator_path
+    template "rest_api_spec.rb.erb", test_path
+    routes_string = "resources :#{file_name.pluralize}"
+    route routes_string
   end
 
   private
@@ -28,5 +28,4 @@ class RestApiControllerGenerator < Rails::Generators::NamedBase
     end
     model_attributes
   end
-
 end
