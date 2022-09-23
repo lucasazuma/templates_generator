@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_23_040843) do
+ActiveRecord::Schema.define(version: 2022_09_23_141428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,11 +50,29 @@ ActiveRecord::Schema.define(version: 2022_09_23_040843) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "boards", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.bigint "dad_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dad_id"], name: "index_boards_on_dad_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.integer "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "calculators", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.bigint "dad_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dad_id"], name: "index_calculators_on_dad_id"
   end
 
   create_table "carrots", force: :cascade do |t|
@@ -178,6 +196,15 @@ ActiveRecord::Schema.define(version: 2022_09_23_040843) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "pens", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.bigint "dad_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dad_id"], name: "index_pens_on_dad_id"
+  end
+
   create_table "pigs", force: :cascade do |t|
     t.string "name"
     t.integer "number"
@@ -213,6 +240,15 @@ ActiveRecord::Schema.define(version: 2022_09_23_040843) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "shirts", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.bigint "dad_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dad_id"], name: "index_shirts_on_dad_id"
+  end
+
   create_table "tests", force: :cascade do |t|
     t.string "name"
     t.integer "number"
@@ -221,6 +257,13 @@ ActiveRecord::Schema.define(version: 2022_09_23_040843) do
   end
 
   create_table "things", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trees", force: :cascade do |t|
     t.string "name"
     t.integer "number"
     t.datetime "created_at", precision: 6, null: false
@@ -241,5 +284,9 @@ ActiveRecord::Schema.define(version: 2022_09_23_040843) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "boards", "dads"
+  add_foreign_key "calculators", "dads"
   add_foreign_key "nuts", "dads"
+  add_foreign_key "pens", "dads"
+  add_foreign_key "shirts", "dads"
 end

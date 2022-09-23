@@ -1,4 +1,5 @@
 class <%= class_name.pluralize %>Controller < ApplicationController
+  before_action :set_<%= options['scope'].downcase %>
   def create
     @<%= singular_name %> = @<%= options['scope'].downcase %>.<%= plural_name %>.create(<%= singular_name %>_params)
     render json: @<%= singular_name %>, status: :ok
@@ -17,7 +18,7 @@ class <%= class_name.pluralize %>Controller < ApplicationController
 
   def index
     @<%= plural_name %> = @<%= options['scope'].downcase %>.<%= plural_name %>
-    render json: @<%= singular_name %>, status: :ok
+    render json: @<%= plural_name %>, status: :ok
   end
 
   def show
@@ -28,7 +29,6 @@ class <%= class_name.pluralize %>Controller < ApplicationController
   private
 
   def <%= singular_name %>_params
-    <%= options['scope'] %>
     params.require(:<%= singular_name %>).permit(<%= attributes.map { |a| ':' + a.name }.join(', ') %>)
   end
 

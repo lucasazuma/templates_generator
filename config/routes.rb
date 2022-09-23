@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   resources :carrots
   resources :scopes
   resources :tests
-  resources :dads
+  resources :dads do
+    resources :shirts
+    resources :boards
+  end
   resources :juices
   resources :waters
   resources :computers
