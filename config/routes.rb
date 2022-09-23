@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  resources :pedros
+  resources :nuts
+  resources :kids
+  resources :categories
+  resources :eggs
+  resources :carrots
+  resources :scopes
+  resources :tests
+  resources :dads do
+    resources :shirts
+    resources :boards
+    resources :plants
+    resources :vegetables
+    resources :winds
+    resources :questions
+    resources :elastics
+  end
   resources :juices
   resources :waters
   resources :computers

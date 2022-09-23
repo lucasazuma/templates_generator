@@ -1,0 +1,2 @@
+class Lid < ApplicationRecord
+end
