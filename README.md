@@ -1,24 +1,19 @@
 # README
+##Update
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+#coisa a serem feitas
+definiçoes de paths para onde ira o controller (inclusive pode ser passados como argumentos, versionamento e tals)
 
-* System dependencies
+##No gerador de filho (outra branch)
+Convcertar destenções
+descobrir como fazer a rota
+criar pasta pai ou verificar se ja existe
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+#testes a serem rodados
+como esta sendo utlizado os references
+diferentes tipos de argumentos , maiusculo minusculo, singular, plural
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
