@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_23_015742) do
+ActiveRecord::Schema.define(version: 2022_09_23_040843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "animals", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bacons", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bags", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "balls", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "bikes", force: :cascade do |t|
     t.string "title"
@@ -29,8 +57,29 @@ ActiveRecord::Schema.define(version: 2022_09_23_015742) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "carrots", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "cars", force: :cascade do |t|
     t.string "title"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "children", force: :cascade do |t|
+    t.string "name"
     t.integer "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -50,6 +99,34 @@ ActiveRecord::Schema.define(version: 2022_09_23_015742) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "dads", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eggs", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "glasses", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "juices", force: :cascade do |t|
     t.string "name"
     t.integer "number"
@@ -64,8 +141,45 @@ ActiveRecord::Schema.define(version: 2022_09_23_015742) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "kids", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lids", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "nuts", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.bigint "dad_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dad_id"], name: "index_nuts_on_dad_id"
+  end
+
   create_table "papers", force: :cascade do |t|
     t.string "title"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pedros", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pigs", force: :cascade do |t|
+    t.string "name"
     t.integer "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -92,7 +206,28 @@ ActiveRecord::Schema.define(version: 2022_09_23_015742) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "scopes", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "things", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tubes", force: :cascade do |t|
     t.string "name"
     t.integer "number"
     t.datetime "created_at", precision: 6, null: false
@@ -106,4 +241,5 @@ ActiveRecord::Schema.define(version: 2022_09_23_015742) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "nuts", "dads"
 end

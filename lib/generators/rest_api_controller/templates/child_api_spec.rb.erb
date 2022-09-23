@@ -1,0 +1,59 @@
+require 'rails_helper'
+
+RSpec.describe "<%=class_name %>", type: :request do
+  let(:valid_attributes) { attributes_for(:<%= singular_table_name %>) }
+  let(:<%= singular_name %>) { create(:<%=singular_table_name %>)
+
+  describe "POST /<%= options['scope'].downcase.pluralize %>" do
+    context "with valid parameters" do
+      it "creates a new <%=singular_name %>" do
+        <%= options['scope'].downcase %> = create(:<%= options['scope'].downcase %>)
+        expect do
+          post "/api/<%= options['scope'].downcase.pluralize %>/#{<%= options['scope'].downcase %>}/<%= plural_name %>",
+               params: { <%= singular_name %>: valid_attributes }
+        end.to change(<%= class_name %>, :count).by(1)
+      end
+    end
+  end
+
+  describe "PUT /<%= options['scope'].downcase.pluralize %>" do
+    <%= options['scope'].downcase %> = create(:<%= options['scope'].downcase %>)
+
+    it "updates an <%=singular_name %>" do
+        patch "/api/<%= options['scope'].downcase.pluralize %>/#{<%= options['scope'].downcase %>.id}/<%=plural_name %>/#{<%= singular_name %>.id}",
+            params: { <%= singular_name %>: valid_attributes }
+        expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "DELETE /<%= options['scope'].downcase.pluralize %>" do
+    <%= options['scope'].downcase %> = create(:<%= options['scope'].downcase %>)
+
+    it "deletes an <%=singular_name %>" do
+      <%=singular_name %> = create(:<%= singular_name %>)
+      expect do
+        delete "/<%= options['scope'].downcase.pluralize %>/#{<%= options['scope'].downcase %>.id}/<%=plural_name %>/#{<%= singular_name %>.id}", headers: valid_headers
+      end.to change(<%= class_name %>, :count).by(-1)
+    end
+  end
+
+  describe "GET/ <%=singular_name %>" do
+    let(:<%= options['scope'].downcase %>) {create(:<%= options['scope'].downcase %>)}
+    let(:<%= singular_table_name %>) { create(:<%=singular_table_name %>)
+
+    it "gets an <%=singular_name %>" do
+      get "/api/<%= options['scope'].downcase.pluralize %>/#{<%= options['scope'].downcase %>.id}/<%= options['scope'].downcase.pluralize %>/#{<%= singular_name %>.id}",
+      expect(response).to be_successful
+    end
+  end
+
+  describe "GET /<%= options['scope'].downcase.pluralize %>" do
+    let(:<%= options['scope'].downcase %>) {create(:<%= options['scope'].downcase %>)}
+    let(:<%= singular_table_name %>) { create(:<%=singular_table_name %>)
+
+    it "renders a successful response" do
+      get "/api/<%= options['scope'].downcase.pluralize %>/#{c.id}/<%plural_name %>", headers: valid_headers
+      expect(response).to be_successful
+    end
+  end
+end

@@ -27,6 +27,7 @@ class <%= class_name.pluralize %>Controller < ApplicationController
   private
 
   def <%= singular_name %>_params
+    <%= options['scope'] %>
     params.require(:<%= singular_name %>).permit(<%= attributes.map { |a| ':' + a.name }.join(', ') %>)
   end
 end
