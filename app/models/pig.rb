@@ -1,2 +1,0 @@
-class Pig < ApplicationRecord
-end

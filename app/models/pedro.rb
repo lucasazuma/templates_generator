@@ -1,2 +1,0 @@
-class Pedro < ApplicationRecord
-end

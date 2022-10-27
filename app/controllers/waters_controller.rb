@@ -1,18 +1,6 @@
+
 class WatersController < ApplicationController
-  def create
-    @water = Water.create(water_params)
-    render json: @water, status: :ok
-  end
-
-  def update
-    @water = Water.update(water_params)
-    render json: @water, status: :ok
-  end
-
-  def destroy
-    @water = Water.find(params[:id])
-    @water.destroy!
-  end
+  before_action :set_water, only: %i[ show update destroy ]
 
   def index
     @water = Water.all
@@ -20,13 +8,31 @@ class WatersController < ApplicationController
   end
 
   def show
-    @water = Water.find(params[:id])
     render json: @water, status: :ok
+  end
+
+  def create
+    @water = Water.create!(water_params)
+    render json: @water, status: :created
+  end
+
+  def update
+    @water = @water.update!(water_params)
+    render json: @water, status: :ok
+  end
+
+  def destroy
+    @water.destroy!
   end
 
   private
 
+  def set_water
+    @water = Water.find(params[:id])
+  end
+
   def water_params
-    params.require(:water).permit(:name, :number)
+    params.require(:water).permit(:name)
   end
 end
+

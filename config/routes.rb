@@ -1,33 +1,15 @@
 Rails.application.routes.draw do
-  resources :pedros
-  resources :nuts
-  resources :kids
-  resources :categories
-  resources :eggs
-  resources :carrots
-  resources :scopes
-  resources :tests
-  resources :dads do
-    resources :shirts
-    resources :boards
-    resources :plants
-    resources :vegetables
-    resources :winds
-    resources :questions
-    resources :elastics
-  end
-  resources :juices
-  resources :waters
-  resources :computers
-  resources :potatos
-  resources :strings
-  resources :cups
-  resources :keys
-  resources :pills
-  resources :papers
-  resources :books
-  resources :car
-  resources :post
-  resources :thing
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace 'api' do
+		namespace 'v1' do
+			namespace 'v2' do
+				namespace 'v3' do
+					  resources :blues
+				end
+			end
+		end
+	end
+
+
+
+
 end

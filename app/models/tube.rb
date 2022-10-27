@@ -1,2 +1,0 @@
-class Tube < ApplicationRecord
-end
