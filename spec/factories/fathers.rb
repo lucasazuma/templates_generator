@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :bag do
+  factory :father do
     name { "MyString" }
   end
 end

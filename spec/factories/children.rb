@@ -1,5 +1,6 @@
 FactoryBot.define do
-  factory :water do
+  factory :child do
     name { "MyString" }
+    father { nil }
   end
 end

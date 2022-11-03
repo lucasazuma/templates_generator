@@ -1,2 +1,0 @@
-class Pill < ApplicationRecord
-end
